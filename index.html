@@ -18,6 +18,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;c
 h1{font-size:2.3rem;margin:14px 0 4px;letter-spacing:-.5px}
 .hero p{font-size:1.15rem;margin:0 auto;max-width:30rem}
 .btn{display:block;max-width:420px;margin:26px auto 10px;background:var(--van);color:var(--ocean);font-size:1.35rem;font-weight:800;text-decoration:none;padding:20px 18px;border-radius:999px;box-shadow:0 6px 0 #b8871d}
+.btn.ios{background:#fff;color:var(--ocean);box-shadow:0 6px 0 #9fb3bd;margin-top:14px;font-size:1.15rem}
 .btn:active{transform:translateY(3px);box-shadow:0 3px 0 #b8871d}
 .small{font-size:.95rem;opacity:.9}
 .wrap{max-width:640px;margin:0 auto;padding:24px 16px 40px}
@@ -41,7 +42,8 @@ a{color:var(--lagon)}
   <img src="icon.png" alt="Logo Reo Fenua">
   <h1>Reo Fenua</h1>
   <p>La messagerie gratuite qui marche <b>même sans réseau</b> : cyclone, tsunami, coupure.</p>
-  <a class="btn" href="https://github.com/reo-fenua/reo-fenua/releases/latest/download/reo-fenua.apk">⬇ Télécharger pour Android</a>
+  <a class="btn" id="android" href="https://github.com/reo-fenua/reo-fenua/releases/latest/download/reo-fenua.apk">⬇ Télécharger pour Android</a>
+  <a class="btn ios" id="iphone" href="https://apps.apple.com/app/id6748219622">Sur iPhone : installer BitChat</a>
   <div class="small">Gratuit · En français · Sans compte ni numéro</div>
 </header>
 
@@ -61,7 +63,13 @@ a{color:var(--lagon)}
   <div class="shots"><img src="home.jpg" alt="Écran principal de Reo Fenua"><img src="alerte.jpg" alt="Écran Alerte de Reo Fenua"></div>
 
   <div class="note"><b>Sans internet ?</b> Demandez à un proche qui a déjà Reo Fenua de vous envoyer l'application par <b>Partage à proximité</b> (Quick Share) ou par Bluetooth, de téléphone à téléphone.</div>
-  <div class="note"><b>Sur iPhone ?</b> Installez <b>BitChat</b> depuis l'App Store : il est compatible et peut écrire aux utilisateurs de Reo Fenua.</div>
+  <h2>Sur iPhone</h2>
+  <div class="note"><b>Installez BitChat</b> depuis l'App Store (application « bitchat mesh », gratuite) : c'est la version iPhone du même réseau. Les iPhone avec BitChat et les Android avec Reo Fenua <b>se parlent entre eux</b>, sans réseau.
+  <ul style="margin:8px 0 0;padding-left:20px">
+   <li>Ouvrez BitChat, acceptez le Bluetooth, choisissez votre prénom.</li>
+   <li>Les messages « Autour de moi » et les messages privés passent dans les deux sens.</li>
+   <li>BitChat est en anglais et n'a pas le bouton ALERTE ni les lettres : les alertes Reo Fenua arrivent sur iPhone comme un message normal, commençant par « ALERTE ».</li>
+  </ul></div>
   <div class="note warn"><b>Reo Fenua ne remplace pas les secours.</b> Dès que le réseau revient : 15 (SAMU), 17 (police), 18 (pompiers), 16 (secours en mer), 112.</div>
 
   <h2>Les mises à jour</h2>
@@ -71,5 +79,8 @@ a{color:var(--lagon)}
   Reo Fenua · Application libre et gratuite · <a href="https://github.com/reo-fenua/reo-fenua">Code source</a><br>
   Reo Fenua n'a pas accès à vos messages, ne bloque personne et ne vous localise pas.
 </footer>
+<script>
+try{if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){var a=document.getElementById('android'),i=document.getElementById('iphone');a.parentNode.insertBefore(i,a);i.className='btn';a.className='btn ios';}}catch(e){}
+</script>
 </body>
 </html>
